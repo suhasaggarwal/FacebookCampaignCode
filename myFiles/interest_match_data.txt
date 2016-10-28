@@ -1,0 +1,115 @@
+0/None,None,None/airline travel,None
+0/None,None,None/hotel,None
+0/None,None,None/markets,None
+1/47,2,Shopping/shopping,Shopping and fashion/Shopping/Online shopping
+
+0/None,None,None/frequent flyer,None
+0/None,None,None/places,None
+0/None,None,None/hindi/bollywood,None
+0/None,None,None/english/music,None
+0/None,None,None/english/hollywood,None
+0/None,None,None/hindi/music,None
+0/None,None,None/television,None
+0/None,None,None/international-business,None
+0/None,None,None/india-business,None
+0/None,None,None/mf-simplified,None
+0/None,None,None/markets,None
+0/None,None,None/apps,None
+0/None,None,None/gaming,None
+0/None,None,None/pcs,None
+1/66,62,mobiles/mobiles,Hobbies and activities/Vehicles/Automobiles
+
+0/None,None,None/computing,None
+26/69,68,fashion/fashion,Shopping and fashion/Clothing/Men's clothing
+
+0/None,None,None/beauty,None
+0/None,None,None/health-fitness,None
+0/None,None,None/home-garden,None
+5/73,68,food/food,Food and drink/Food/Fast food
+
+0/None,None,None/clothes&accessories,None
+0/None,None,None/hockey,None
+3/76,24,football/football,Sports and outdoors/Sports/American football
+
+0/None,None,None/tennis,None
+2/78,24,ipl/ipl,Entertainment/Games/Massively multiplayer online role-playing games
+
+0/None,None,None/badminton,None
+0/None,None,None/cricket,None
+0/None,None,None/india-news,None
+0/None,None,None/india/politics,None
+0/None,None,None/best-sellers,None
+0/None,None,None/children-books,None
+0/None,None,None/ebooks,None
+0/None,None,None/fan-fiction,None
+0/None,None,None/magazines,None
+0/None,None,None/mythology,None
+0/None,None,None/non-fiction,None
+0/None,None,None/poetry,None
+0/None,None,None/reference books,None
+0/None,None,None/romance novels,None
+0/None,None,None/anime & manga,None
+0/None,None,None/cartoons,None
+0/None,None,None/comics,None
+0/None,None,None/ballet,None
+0/None,None,None/ballroom dance,None
+0/None,None,None/belly dance,None
+0/None,None,None/modern dance,None
+0/None,None,None/pole dancing,None
+0/None,None,None/acura,None
+0/None,None,None/audi,None
+0/None,None,None/bentley,None
+0/None,None,None/cadillac,None
+0/None,None,None/chevrolet,None
+0/None,None,None/fiat,None
+0/None,None,None/ford,None
+0/None,None,None/honda,None
+0/None,None,None/hyundai,None
+0/None,None,None/landrover,None
+0/None,None,None/mazda,None
+0/None,None,None/mistubishi,None
+0/None,None,None/advertising & marketing,None
+0/None,None,None/aerospace & defence,None
+0/None,None,None/agriculture & forestry,None
+0/None,None,None/robotics,None
+0/None,None,None/biomedical,None
+0/None,None,None/chemicals,None
+0/None,None,None/energy,None
+0/None,None,None/iron & steel,None
+0/None,None,None/metals,None
+0/None,None,None/mining,None
+1/136,125,paper/paper,Entertainment/Reading/Newspapers
+
+0/None,None,None/beadwork,None
+0/None,None,None/candle & soapmaking,None
+0/None,None,None/jewelary making,None
+0/None,None,None/photography,None
+0/None,None,None/pottery,None
+0/None,None,None/guitar,None
+0/None,None,None/magic & illusion,None
+0/None,None,None/biology,None
+0/None,None,None/chemistry,None
+0/None,None,None/computer science,None
+0/None,None,None/ecology,None
+0/None,None,None/geography,None
+0/None,None,None/geology,None
+0/None,None,None/medicine,None
+0/None,None,None/social science,None
+0/None,None,None/weather,None
+0/None,None,None/board & puzzles,None
+0/None,None,None/card games,None
+0/None,None,None/chess,None
+0/None,None,None/gambling,None
+0/None,None,None/lottery,None
+0/None,None,None/role playing games,None
+0/None,None,None/fighting games,None
+0/None,None,None/video & computer games,None
+0/None,None,None/classical,None
+0/None,None,None/country music,None
+0/None,None,None/electronic music,None
+0/None,None,None/folk,None
+0/None,None,None/hip hop,None
+0/None,None,None/jazz,None
+0/None,None,None/opera,None
+0/None,None,None/pop music,None
+0/None,None,None/rock music,None
