@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Marketing API SDK for Python
 
 [![Build Status](https://travis-ci.org/facebook/facebook-python-ads-sdk.svg)](https://travis-ci.org/facebook/facebook-python-ads-sdk)
@@ -442,3 +443,7 @@ python -m facebookads.test.integration <ACCESS_TOKEN>
 ## Examples
 
 Examples of usage are located in the ``examples/`` folder.
+=======
+# FacebookCampaignCode
+It consists of code which is used to create a campaign on facebook.
+>>>>>>> 8bba5e55ca78ce26ee9154129b77f4e0bfd96c24
