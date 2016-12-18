@@ -1,6 +1,6 @@
 import sys
 from db_connect import *
-fp = open('/home/subhash/facebook-python-ads-sdk-master/myFiles/interest_segment.txt')
+fp = open('C:\Users\Suhas Aggarwal\Downloads\FacebookCampaignCode-master\FacebookCampaignCode-master\facebookads\myFiles\interest_segment.txt')
 lines = fp.readlines()
 
 db_obj = DBConnect()

@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.abspath("/home/subhash/facebook-python-ads-sdk-master"))
+sys.path.append(os.path.abspath("C:\Users\Suhas Aggarwal\Downloads\FacebookCampaignCode-master\FacebookCampaignCode-master"))
 from facebookads.adobjects.adimage import AdImage
 from facebookads.adobjects.adcreative import AdCreative
 from facebookads.adobjects.adcreativelinkdata import AdCreativeLinkData
@@ -91,7 +91,7 @@ class Creative:
             #link_data[AdCreativeLinkData.Field.image_hash] = image_hash
 
             object_story_spec = AdCreativeObjectStorySpec()
-            object_story_spec[AdCreativeObjectStorySpec.Field.page_id] = '507270992665963'
+            object_story_spec[AdCreativeObjectStorySpec.Field.page_id] = '349224428539835'
             object_story_spec[AdCreativeObjectStorySpec.Field.link_data] = link_data
 
             creative = AdCreative(parent_id=self.obj.act_id)

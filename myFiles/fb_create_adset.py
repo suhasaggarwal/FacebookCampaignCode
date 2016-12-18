@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.abspath("/home/subhash/facebook-python-ads-sdk-master"))
+sys.path.append(os.path.abspath("C:\Users\Suhas Aggarwal\Downloads\FacebookCampaignCode-master\FacebookCampaignCode-master"))
 from facebookads.adobjects.adset import AdSet
 
 class CreateAdSet:

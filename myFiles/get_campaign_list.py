@@ -2,18 +2,16 @@ import urllib
 import sys
 import os
 import json
-sys.path.append(os.path.abspath("/home/subhash/facebook-python-ads-sdk-master"))
+sys.path.append(os.path.abspath("C:\Users\Suhas Aggarwal\Downloads\FacebookCampaignCode-master\FacebookCampaignCode-master"))
 from facebookads.adobjects.campaign import Campaign
 from facebookads.api import FacebookAdsApi
 from facebookads import objects
 from facebookads.adobjects.targetingsearch import TargetingSearch
 
-
-my_app_id = '839000112895379'
-my_app_secret = '1bc9adcdfbdc6da9bb313868b2308289'
-my_access_token = 'EAAL7EOZByFZAMBAK595vfvEwGOl6CWX9LuRpdD0JZBU9aURsBxpNbZAFDZAaGffHtDH85L2ux0Xp0b1dfCgM17vziIrQHOy5RA3W\
-nQxM4Dn8n2l0w1YFzVQTJmhugLp7v7jMf4QxC9eDZAmgvScwHfIrpuY2oAflcZD'
-account_id = 'act_1615161972081611'
+my_app_id = '140038042803966'
+my_app_secret = 'c93321dac3181da22adf9b67c6572e24'
+my_access_token = 'EAABZCXSXL3v4BAEZCDXGpUvkdEReybnruE75ByPRurgyukYhsJurz4Lrxa4F2rA3ZBvvm3dkMk8Vclr37ANIKExJzCWz3QRvt87XiuZCwN6Dxf0zZAq0ay0sYwPZBNyiaeVolcOifdIhaz6gvuuV5e3zlG0qRJc6oLC9iYBGSJoAZDZD'
+account_id = 'act_310419005'
 
 FacebookAdsApi.init(my_app_id, my_app_secret, my_access_token)
 

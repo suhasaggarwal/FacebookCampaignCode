@@ -7,7 +7,7 @@ from fb_ad_creative import *
 from fb_app_config import *
 
 
-sys.path.append(os.path.abspath("/home/subhash/facebook-python-ads-sdk-master"))
+sys.path.append(os.path.abspath("C:\Users\Suhas Aggarwal\Downloads\FacebookCampaignCode-master\FacebookCampaignCode-master"))
 from facebookads.adobjects.campaign import Campaign
 from facebookads.adobjects.adset import AdSet
 from facebookads.api import FacebookAdsApi
@@ -39,7 +39,7 @@ class CreateCamp:
         #self.me = objects.AdUser(fbid='me')
         #self.my_accounts = list(self.me.get_ad_accounts())
         #self.my_account = self.my_accounts[0]
-        self.act_id = 'act_1615161972081611'
+        self.act_id = 'act_310419005'
 
     def createcampaign(self):
         campaign = None
@@ -82,6 +82,9 @@ class CreateCamp:
         if len(adset_obj.gender) > 0:
             d["genders"] = adset_obj.gender
 
+
+        d["interests"] = adset_obj.interest_key_list
+
         '''
         d = {'geo_locations': {'cities': adset_obj.city_key_list},
              #'user_device': adset_obj.device_list,
@@ -108,10 +111,11 @@ class CreateCamp:
 
 class CreateAdSet:
 
-    def __init__(self, name, bid, daily_budget, key_list, os_list, device_list, gender, targeting=None):
+    def __init__(self, name, bid, daily_budget,interest_list,key_list,os_list, device_list, gender, targeting=None):
         self.adset_name = name
         self.bid_amount = bid
         self.daily_budget = daily_budget
+        self.interest_key_list = interest_list
         self.city_key_list = key_list
         self.os_list = os_list
         self.device_list = device_list
@@ -137,7 +141,7 @@ if __name__ == '__main__':
         camp_name = str(result[0][1])
         objective = str(result[0][2])
         status = str(result[0][5])
-        status = status.upper()
+        status = 'PAUSE'
         if status in ['PAUSE', 'NONE', 'STOP']:
             status = 'PAUSED'
         obj = CreateCamp(camp_name, objective, status)
@@ -152,8 +156,8 @@ if __name__ == '__main__':
         #print campaign
 
         budget_query_result = result_obj.budget_query_result
-
-        if len(budget_query_result) > 0:
+        print budget_query_result
+        if 1 > 0:
             #print 'Budget : ',budget_query_result
             total_budget = budget_query_result[0][1]
             daily_budget = budget_query_result[0][3]
@@ -176,7 +180,7 @@ if __name__ == '__main__':
 
             geography_query_result = result_obj.geography_query_result
             key_list = []
-            if not error and len(geography_query_result) > 0:
+            if len(geography_query_result) > 0:
                 #print geography_query_result
                 city_list = geography_query_result
                 for name in city_list:
@@ -189,6 +193,29 @@ if __name__ == '__main__':
                 print 'Error while fetching data of geolocation. This is a blocker. Error is: '+str(error)
 
             ########### Calculate Targeting OS list ###################################
+
+            interestlist = interest_segment_id.split(",")
+            interest_list = []
+            print interestlist
+            for code in interestlist:
+                print code
+                if code != '':
+                   a = get_interest_List(code)
+                   print a
+                   interest_list.append(a)
+
+            print interest_list
+
+            '''
+            interest_list = [{
+                'id': 6003107902433,
+                'name': 'Association football (Soccer)',
+            },]
+            '''
+          #  interest = get_interest_code('Cricket')
+           # interest_list.append(interest)
+
+
 
             get_os_query_result = result_obj.get_os_query_result
             os_list = []
@@ -222,14 +249,13 @@ if __name__ == '__main__':
             #adsetobj = CreateAdSet(adset_name, bid_amount, daily_budget, key_list, os_list, device_list )
             # Creating adset is accepting a certain amount as daily budget. Here in this case > 9100
 
-            adsetobj = CreateAdSet(adset_name, bid_amount, '10000', key_list, os_list, device_list, gender)
+            adsetobj = CreateAdSet(adset_name, bid_amount, '10000',interest_list, key_list, os_list, device_list, gender)
             adsetobj.targeting_dict = obj.gettargeting(adsetobj)
             adset = obj.createadset(adsetobj, campaign)
 
             print adset.get_id()
-            if not result_obj.error:
-                creative_obj = Creative(result_obj.get_creative_detail_query_result, obj, click_tracker)
-                try:
+            creative_obj = Creative(result_obj.get_creative_detail_query_result, obj, click_tracker)
+            try:
                     creative = creative_obj.create_creative()
 
                     ad = Ad(parent_id= obj.act_id)
@@ -241,7 +267,7 @@ if __name__ == '__main__':
                     ad.remote_create(params={
                         'status': Ad.Status.paused,
                     })
-                except Exception as e:
+            except Exception as e:
                     print str(e)
             else:
                 print 'Error :'+result_obj.error

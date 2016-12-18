@@ -1,4 +1,3 @@
-import MySQLdb
 from db_connect import *
 
 
@@ -18,7 +17,14 @@ class DBQuery:
     def execute_queries(self):
         db_obj = DBConnect()
 
-        sql_query_camp = 'SELECT * FROM Campaign WHERE Id = 932635'
+        sql_query_camp_id = 'select t.CampaignId from CampaignChannel t where  t.CreatedTime > date_sub(now(), interval 5 minute)'
+        print sql_query_camp_id
+        self.result1, self.error = db_obj.db_connect_query(sql_query_camp_id)
+        print self.result1
+        print self.error
+        cid =  self.result1[0][0]
+        print cid
+        sql_query_camp = 'SELECT * FROM Campaign WHERE Id =' + str(390878926)
         self.result, self.error = db_obj.db_connect_query(sql_query_camp)
 
         print sql_query_camp
@@ -27,10 +33,12 @@ class DBQuery:
             camp_id = camp_id = self.result[0][0]
 
             budget_query = 'SELECT * FROM BudgetCampaign bc WHERE bc.CampaignId =' + str(camp_id)
+
+            print budget_query
             self.budget_query_result, self.error = db_obj.db_connect_query(budget_query)
 
-            target_camp_query = 'SELECT * FROM TargetCampaign tc, CampaignDetail cd WHERE cd.CampaignId =' + str(
-                camp_id) + ' AND cd.TargetCampaignId = tc.Id'
+            target_camp_query = 'SELECT * FROM TargetCampaign tc, CampaignChannel cd WHERE cd.CampaignId =' + str(
+                camp_id) + ' AND cd.TargetCampaignChannelId = tc.Id' + ' AND cd.ChannelId = 1'
 
             print 'Target query: ', target_camp_query
 
@@ -51,7 +59,9 @@ class DBQuery:
                 geo_list = geography_id.split(',')
                 geo_tuple = tuple(geo_list)
 
-                geography_query = 'SELECT g.City FROM Geography g WHERE g.Id IN ' + str(geo_tuple)
+                print geo_tuple
+
+                geography_query = 'SELECT g.City FROM Geography g WHERE g.Id IN ' + str(geo_tuple).rstrip(',')
                 print geography_query
                 self.geography_query_result, self.error = db_obj.db_connect_query(geography_query)
 
@@ -69,7 +79,11 @@ class DBQuery:
                         os_id = str(self.os_target_query_result[0][1]).replace(' ', '').split(',')
                         os_tuple = tuple(os_id)
 
-                        get_os_query = 'SELECT os.Name as os_name FROM OperatingSystems os Where os.Id IN ' + str(os_tuple)
+                        print os_tuple
+                        get_os_query = 'SELECT os.Name as os_name FROM OperatingSystems os Where os.Id IN ' + str(os_tuple).rstrip(',')
+
+                        print  get_os_query
+
                         self.get_os_query_result, self.error = db_obj.db_connect_query(get_os_query)
 
                         device_target_query = 'SELECT * FROM TargetCampaignDevice WHERE TargetCampaignId =' + str(target_camp_id)
@@ -79,9 +93,15 @@ class DBQuery:
                         self.error = True
 
                     if not self.error and len(self.device_target_query_result) > 0:
+                        print str(self.device_target_query_result[0][1])
                         device_id = str(self.device_target_query_result[0][1]).replace(' ', '').split(',')
+                        print device_id
+
                         device_tuple = tuple(device_id)
-                        get_device_query = 'SELECT device.Name as device_name FROM Device device Where device.Id IN ' + str(device_tuple)
+                        print device_tuple
+                        get_device_query = 'SELECT device.Name as device_name FROM Device device Where device.Id IN ' + str(device_tuple).rstrip(',')
+                        print get_device_query
+
                         self.get_device_query_result, self.error = db_obj.db_connect_query(get_device_query)
 
                     else:
@@ -93,12 +113,15 @@ class DBQuery:
                     self.channel_creative_query_result, self.error = db_obj.db_connect_query(channel_creative_query)
 
                     if not self.error and len(self.channel_creative_query_result) > 0:
-                        creative_id = self.channel_creative_query_result[0][2]
+                        print str(self.channel_creative_query_result[0][2])
+                        creative_id = (str(self.channel_creative_query_result[0][2])+str(',')).replace(' ', '').split(',')
                         budget_campaign_id = self.channel_creative_query_result[0][3]
 
-                        creative_id_tuple = tuple(str(creative_id).split(','))
-
+                        print creative_id
+                        creative_id_tuple = tuple(creative_id)
+                        print creative_id_tuple
                         get_creative_detail_query = 'SELECT * FROM FacebookCreative WHERE id IN ' + str(creative_id_tuple)
+                        print get_creative_detail_query
                         self.get_creative_detail_query_result, self.error = db_obj.db_connect_query(get_creative_detail_query)
 
                     else:
